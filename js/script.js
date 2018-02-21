@@ -1,23 +1,53 @@
-var budget = prompt("What is your budget?");
-var phonePrice = prompt("How much does the phone costs without taxes?");
-var accessories = prompt("How much you want to spend on accessories without taxes?");
-var taxes = prompt("Insert taxes percent, without the percent sign");
-var moneyToSpend = 0;
+document.getElementById("coursesI").addEventListener("click", function(event){
+    event.preventDefault()
+});
 
-budget = Number(budget);
-phonePrice = Number(phonePrice);
-accessories = Number(accessories);
-taxes = Number(taxes) / 100;
+function buyPhone() {
 
-while(budget > 0) {
-	moneyToSpend = ((phonePrice + accessories) * taxes + (phonePrice + accessories)).toFixed(2);
-	if(moneyToSpend > budget) {
-		alert("You don't have enough money to spend!");
-		alert("You need $" + (moneyToSpend - budget) + " more!");
-		break;
-	} else {
-		budget = "$" + ((budget - moneyToSpend).toFixed(2));
-		alert("Nice, you have " + budget + " left!");	
-		break;	
+	var budget = prompt("What is your budget?");
+	var phonePrice = prompt("How much does the phone costs without taxes?");
+	var accessories = prompt("How much you want to spend on accessories without taxes?");
+	var taxes = prompt("Insert taxes percent, without the percent sign");
+	var moneyToSpend = 0;
+
+	budget = Number(budget);
+	phonePrice = Number(phonePrice);
+	accessories = Number(accessories);
+	taxes = Number(taxes) / 100;
+
+	function verifyInput(budget, phonePrice, accessories, taxes) {
+		if(isNaN(budget) || isNaN(phonePrice) || isNaN(accessories) || isNaN(taxes)) {
+			alert("One of the values provided is not valid, please try again.");
+		} else {
+			while(budget > 0) {
+				moneyToSpend = ((phonePrice + accessories) * taxes + (phonePrice + accessories)).toFixed(2);
+				if(moneyToSpend > budget) {
+					alert("You don't have enough money to spend!");
+					alert("You need $" + (moneyToSpend - budget) + " more!");
+					break;
+				} else {
+					budget = "$" + ((budget - moneyToSpend).toFixed(2));
+					alert("Nice, you have " + budget + " left!");	
+					break;	
+				}
+			}
+		}
 	}
+
+	verifyInput(budget, phonePrice, accessories, taxes);
+
 }
+
+var buyButton = document.getElementById("purchase");
+buyButton.addEventListener("click", buyPhone);
+
+var courseButton = document.getElementById("coursesI");
+
+courseButton.addEventListener("click", function () {
+	var popUp = document.getElementsByClassName("pop-up")[0];
+	if (popUp) {
+		popUp.classList.toggle("display-none");
+	} else {
+		popUp.classList.toggle("display-block");
+	}
+}, false);
