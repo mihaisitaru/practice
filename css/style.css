@@ -10,7 +10,7 @@ body {
 }
 
 .text-shadow {
-    text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
 }
 
 .clear-both {
@@ -38,8 +38,9 @@ div.first-content {
     position: sticky;
     top: 0;
     padding: 5px;
-    background-color: white;
+    background-color: rgba(255,247,247,0.7);
     border-radius: 10px;
+    box-shadow: 1px 1px 5px rgba(255,236,236,0.7);
 }
 
 #main-title {
@@ -94,12 +95,17 @@ div.first-content {
     color: gray;
     padding: 5px;
     text-transform: capitalize;
-    font-size: 2em;
 }
 
 .coursesC a:hover {
     text-decoration: underline;
     color: black;
+}
+
+.coursesC ol {
+    margin-left: 4%;
+    list-style-type: upper-roman;
+    font-size: 2em;
 }
 
 #purchase {
@@ -120,3 +126,20 @@ div.first-content {
     cursor: pointer;
 }
 
+.content {
+    background-color: gray;
+    opacity: 0.8;
+    border-radius: 10px;
+}
+
+.lorem {
+    color: white;
+    margin: 2%;
+}
+
+.copyright {
+    bottom: 0;
+    margin-bottom: 1%;
+    text-align: center;
+    color: white;
+}
