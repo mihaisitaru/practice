@@ -17,10 +17,6 @@ body {
     clear: both;
 }
 
-.float-left {
-    text-align: left;
-}
-
 .display-none {
     display: none;
 }
@@ -52,14 +48,6 @@ div.first-content {
     margin-top: 0.2%;
     color: rgb(34, 34, 17);
 }
-
-.descr {
-    width: 10%;
-    text-align: left;
-    background-color: gold; 
-    display: flex;
-}
-
 
 #main-links {
     list-style: none;
