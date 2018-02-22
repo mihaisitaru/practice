@@ -41,6 +41,7 @@ div.first-content {
     background-color: rgba(255,247,247,0.7);
     border-radius: 10px;
     box-shadow: 1px 1px 5px rgba(255,236,236,0.7);
+    z-index: 999999;
 }
 
 #main-title {
@@ -54,7 +55,7 @@ div.first-content {
     list-style: none;
     margin-bottom: 2%;
     float: right;   
-    width: 30%;
+    width: 16%;
 }
 
 #main-links li {
@@ -77,14 +78,13 @@ div.first-content {
 }
 
 .pop-up {
-    float: left;
     width: auto;
     background-color: transparent;
     border-radius: 3%;
-    margin-right: 14%;
 }
 
 .coursesC {   
+    float: left;
     border-radius: 3%;
     border: 1px solid gray;
 }
@@ -106,6 +106,46 @@ div.first-content {
     margin-left: 4%;
     list-style-type: upper-roman;
     font-size: 2em;
+}
+
+.table {
+    float: left;
+    margin: 4% 0 0 4%;
+}
+
+table, th, td, caption {
+    color: white;
+    background-color: gray;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+tfoot {
+    text-align: center;
+}
+
+.cv {
+    float: left;
+    margin: 7% 0 0 4%;
+    text-align: center;
+    color: black;
+}
+
+.cv img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    -webkit-filter: grayscale(80%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(80%);
+}
+
+.coursesC, .table {
+    margin-right: 2%;
+}
+
+h4 {
+    float: left;
+    margin-right: 1%;
 }
 
 #purchase {
