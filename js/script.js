@@ -718,4 +718,49 @@ buyButton.addEventListener("click", buyPhone);
 // 	console.log(answer);
 // }); //promise tasks
 
- 
+/* Begin new course */
+
+/* Objects */
+
+/* Example 1 */
+
+// var box = {};
+
+// box.material = "cardboard"; //adding a "material" property with the value "cardboard" on the box object, the same as box["material"] = "cardboard";
+// var cb = box.material;
+
+// box.material = "titanium";
+// cb; //"cardboard"
+
+// var key = "material";
+// box[key]; //"titanium"
+
+/* Example 2 */
+
+// var box = {};
+
+// box["material"] = "cardboard";
+
+// var func = function() {
+// 	return "material";
+// };
+
+// box[func()]; //"cardoard"
+
+/* Example 3 */
+
+var box = {};
+
+box["material"] = "cardboard";
+
+box["size"] = {
+	"height": 2,
+	"width": 80
+};
+
+box.area = function() {
+	return box.size.height * box.size.width;
+}
+//area is a method on the box object
+
+
