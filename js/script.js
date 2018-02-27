@@ -230,3 +230,335 @@ courseButton.addEventListener("click", function () {
 
 // })()();
 
+/* the "this" example 1 */
+
+// function foo() {
+// 	console.log(this.bar);
+// }
+
+// var bar = "bar1";
+// var o2 = {bar: "bar2", foo: foo};
+// var o3 = {bar: "bar3", foo: foo};
+
+// foo(); //bar1
+// o2.foo(); //bar2
+// o3.foo(); //bar3
+
+/* the "this" example 2 */
+
+// var o1 = {
+// 	bar: "bar1",
+// 	foo: function() {
+// 		console.log(this.bar);
+// 	}
+// };
+
+// var o2 = {bar: "bar2", foo: o1.foo};
+
+// var bar = "bar3";
+
+// var foo = o1.foo;
+
+// o1.foo(); //bar1
+// o2.foo(); //bar2
+// foo(); //bar3
+
+// function foo() {
+// 	var bar = "bar1";
+// 	baz();
+// }
+
+// function baz() {
+// 	console.log(this.bar);
+// }
+
+// var bar = "bar2";
+//foo(); //bar2, because you cannot create a cross brigde between this (locally) and the global scope
+
+// function foo() {
+// 	var bar = "bar1";
+// 	this.baz = baz;
+// 	this.baz();
+// }
+
+// function baz() {
+// 	console.log(this.bar);
+// }
+
+// var bar = "bar2";
+// foo(); //bar2, because you cann  ot create a cross brigde between this (locally) and the global scope
+
+// function foo() {
+// 	console.log(this.bar);
+// }
+
+// var bar = "bar1";
+// var obj = {bar: "bar2"};
+
+// foo(); //bar1
+// foo.call(obj); //bar2, because of explicit binding
+// foo.apply(obj); //bar2, because of explicit binding
+
+
+// function foo() {
+// 	console.log(this.bar);
+// }
+
+// var obj = {bar: "bar"};
+// var obj2 = {bar: "bar2"};
+
+// var orig = foo;
+// foo = function(){ orig.call(obj); };
+
+
+// foo(); //bar
+// foo.call(obj2); //bar, because of hard binging when foo got overwritten
+
+//the same code as above, but this time with a function that can be reused, bind()
+
+// function bind(fn,o) {
+// 	return function() {
+// 		fn.call(o);
+// 	};
+// }
+
+// function foo() {
+// 	console.log(this.bar);
+// }
+
+// var obj = {bar: "bar"};
+// var obj2 = {bar: "bar2"};
+
+// foo = bind(foo, obj);
+
+// foo(); //bar
+// foo.call(obj2); //bar
+
+// next level hard binding:
+
+// if(!Function.prototype.bind2) {
+// 	Function.prototype.bind2 = function(o) {
+// 		var fn = this; // the function!
+// 		return function() {
+// 			return fn.apply(o, arguments);
+// 		};
+// 	};
+// }
+
+// function foo(baz) {
+// 	console.log(this.bar + " " + baz);
+// }
+
+// var obj = { bar: "bar" };
+// foo = foo.bind2(obj);
+
+// foo("baz"); // "bar baz" and not "baz baz", because the obj is hard binding of the fn.apply function
+
+// function foo() {
+// 	this.baz = "baz";
+// 	console.log(this.bar + " " + baz);
+// }
+
+// var bar = "bar";
+// var baz = new foo(); // undefined undefined
+
+/* Begin examples of closure: */
+
+// function foo() {
+// 	var bar = "bar";
+// 	function baz() {
+// 		console.log(bar);
+// 	}
+// 	bam(baz);
+// }
+
+// function bam(baz) {
+// 	baz(); //bar
+// }
+
+// foo();
+
+// function foo() {
+// 	var bar = "bar";
+
+// 	return function() {
+// 		console.log(bar);
+// 	};
+// }
+
+// function bam() {
+// 	foo()();
+// }
+
+// bam(); //bar
+
+// function foo() {
+// 	var bar = "bar";
+	
+// 	setTimeout(function(){
+// 		console.log(bar);
+// 	}, 1000);
+// }
+
+// foo(); //bar, after 1 second
+
+// function foo() {
+// 	var bar = 0;
+
+// 	setTimeout(function() {
+// 		console.log(bar++);
+// 	}, 1000);
+// 	setTimeout(function() {
+// 		console.log(bar++);
+// 	}, 2000);
+// }
+
+// foo(); // 0 after one second, 1 after two seconds
+
+// function foo() {
+// 	var bar = 0;
+
+// 	setTimeout(function(){
+// 		var baz = 1;
+// 		console.log(bar++);
+
+// 		setTimeout(function(){
+// 			console.log(bar+baz);
+// 		}, 200);
+// 	},100);
+// }
+
+// foo(); // 0 2
+
+// for (var i=1; i<=5; i++) {
+// 	setTimeout(function() {
+// 		console.log("i: " + i); // prints 6, five times
+// 	}, i*1000);
+// }
+
+
+// for (var i=1; i<=5; i++) {
+// 	(function IIFE(i){
+// 		setTimeout(function(){
+// 			console.log("i: " + i); // prints 1, 2, 3, 4, 5 every second
+// 		}, i*1000);
+// 	})(i);
+// }
+
+// for (let i=1; i<=5; i++) {
+// 	setTimeout(function() {
+// 		console.log("i: " + i); // prints 1, 2, 3, 4, 5 every second
+// 	}, i*1000);
+// } // OR
+
+
+// for (var i=1; i<=5; i++) {
+// 	let j = i;
+// 	setTimeout(function() {
+// 		console.log("j: " + j); // prints 6, five times
+// 	}, j*1000);
+// }
+
+// var foo = (function() {
+// 	var o = { bar: "bar" };
+// 	return { obj: o };
+// })();
+
+// console.log(foo.obj.bar); //bar, by definition this isn't closure, but object reference
+
+/* End examples of closure */
+
+// var foo = (function IIFE() {
+// 	var o = { bar: "bar" };
+
+// 	return {
+// 		bar: function() {
+// 			console.log(o.bar);
+// 		}
+// 	};
+
+// })();
+
+// foo.bar(); //bar, this is an example of a classic module pattern
+
+// var foo = (function IIFE() {
+// 	var publicAPI = {
+// 		bar: function() {
+// 			publicAPI.baz();
+// 		},
+// 		baz: function() {
+// 			console.log("baz");
+// 		}
+// 	};
+// 	return publicAPI;
+// })();
+
+// foo.bar(); //baz, example of a modified module pattern 
+
+/* Prototype Linkages: */
+
+// function Foo(who) {
+// 	this.me = who;
+// }
+
+// Foo.prototype.identify = function() {
+// 	return "I am " + this.me;
+// };
+
+// Foo.prototype.speak = function() {
+// 	alert("Hello, " + 
+// 		this.identify() + 
+// 	".");
+// };
+
+
+// var a1 = new Foo("a1");
+// a1.speak(); // alerts: "Hello, I am a1."
+
+/* prototype: objects linked */
+
+// function Foo(who) {
+// 	this.me = who;
+// }
+
+// Foo.prototype.identify = function() {
+// 	return "I am " + this.me;
+// };
+
+// function Bar(who) {
+// 	Foo.call(this,who);
+// }
+
+// Bar.prototype = Object.create(Foo.prototype);
+
+// Bar.prototype.speak = function() {
+// 	alert("Hello, " + this.identify() + ".");
+// };
+
+// var b1 = new Bar("b1");
+// var b2 = new Bar("b2");
+
+// b1.speak(); //alerts: "Hello, I am b1."
+// b2.speak(); //alerts: "Hello, I am b2."
+
+/* Obiect linked to other objects, simplified: */
+
+// var Foo = {
+// 	 init: function(who) {
+// 		 this.me = who;
+// 	 },
+// 	 identify: function() {
+// 		 return "I am " + this.me;
+// 	 }
+// };
+
+// var Bar = Object.create(Foo);
+
+// Bar.speak = function() {
+// 	 alert("Hello, " + this.identify() + ".");
+// };
+
+// var b1 = Object.create(Bar);
+// b1.init("b1");
+// b1.speak(); //alerts: "Hello, I am b1."
+
