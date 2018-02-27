@@ -1,6 +1,61 @@
-document.getElementById("coursesI").addEventListener("click", function(event){
-    event.preventDefault()
+// document.getElementById("coursesI").addEventListener("click", function(event){
+//     event.preventDefault()
+// });
+
+/* Begin nav built */
+
+function Widget(width,height) {
+	this.width = width || 50;
+	this.height = height || 50;
+	this.$elem = null;
+}
+
+Widget.prototype.render = function($where){
+	if (this.$elem) {
+		this.$elem.css({
+			width: this.width + "px",
+			height: this.height + "px"
+		}).appendTo($where);
+	}
+};
+
+function Button(width, height, label) {
+	Widget.call(this,width,height);
+	this.label = label || "Default";
+	this.$elem = $("<button class='main-nav'>").text(this.label);
+}
+
+Button.prototype = Object.create(Widget.prototype);
+
+Button.prototype.render = function($where) {
+	Widget.prototype.render.call(this,$where);
+	this.$elem.click(this.onClick.bind(this));
+};
+
+Button.prototype.onClick = function(evt) {
+	console.log("Button '" + this.label + "' clicked!");
+	var popUp = document.getElementsByClassName("pop-up")[0];
+	if(this.label === "Courses" && popUp) {
+		popUp.classList.toggle("display-block");
+	} else if (this.label === "Home") {
+		$("btn3").click(window.open('index.html', '_self'));
+	} else {
+		$("btn1").click(window.open('https://www.linkedin.com/in/mihai-sitaru/', '_blank'));
+	}	
+};
+
+$(document).ready(function(){
+	var $body = $(document.body);
+	var btn3 = new Button(80,50,"Home");
+	var btn2 = new Button(80,50,"Courses");
+	var btn1 = new Button(80,50,"About");
+
+	btn1.render($(".first-content"));
+	btn2.render($(".first-content"));
+	btn3.render($(".first-content"));
 });
+
+/* End nav built */
 
 function buyPhone() {
 
@@ -41,16 +96,16 @@ function buyPhone() {
 var buyButton = document.getElementById("purchase");
 buyButton.addEventListener("click", buyPhone);
 
-var courseButton = document.getElementById("coursesI");
+// var courseButton = document.getElementById("coursesI");
 
-courseButton.addEventListener("click", function () {
-	var popUp = document.getElementsByClassName("pop-up")[0];
-	if (popUp) {
-		popUp.classList.toggle("display-none");
-	} else {
-		popUp.classList.toggle("display-block");
-	}
-}, false);
+// courseButton.addEventListener("click", function () {
+// 	var popUp = document.getElementsByClassName("pop-up")[0];
+// 	if (popUp) {
+// 		popUp.classList.toggle("display-none");
+// 	} else {
+// 		popUp.classList.toggle("display-block");
+// 	}
+// }, false);
 /* a try, throw, catch, finally example: /*
 
 // try {
@@ -562,3 +617,105 @@ courseButton.addEventListener("click", function () {
 // b1.init("b1");
 // b1.speak(); //alerts: "Hello, I am b1."
 
+// setTimeout(function(){
+// 	console.log("callback!");
+// },1000); // callback example
+
+// setTimeout(function(){
+// 	console.log("one");
+// 	setTimeout(function(){
+// 		console.log("two");
+// 		setTimeout(function(){
+// 			console.log("three");
+// 		},1000);
+// 	},1000);
+// },1000); //callback hell, the piramid of doom
+
+// function one(cb) {
+// 	console.log("one");
+// 	setTimeout(cb,1000);
+// }
+// function two(cb) {
+// 	console.log("two");
+// 	setTimeout(cb,1000);
+// }
+// function three() {
+// 	console.log("three");
+// }
+
+// one(function() {
+// 	two(three);
+// }); //another callback example
+
+// function trySomething(ok,err) {
+// 	setTimeout(function(){
+// 		var num = Math.random();
+// 		if(num > 0.5) ok(num);
+// 		else err(num);
+// 	},1000);
+// }
+
+// trySomething(
+// 	function(num) {
+// 		console.log("Success: " + num);
+// 	},
+// 	function(num) {
+// 		console.log("Sorry: " + num);
+// 	}
+// );
+
+// function trySomething(cb) {
+// 	setTimeout(function() {
+// 		var num = Math.random();
+// 		if (num > 0.5) cb(null,num);
+// 		else cb("Too low!");
+// 	},1000);
+// }
+
+// trySomething(function(err,num){
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		console.log("Number: " + num);
+// 	}
+// }); //error first style
+
+// function getData(d,cb) {
+// 	setTimeout(function(){ cb(d); },1000);
+// }
+
+// getData(10,function(num1){
+// 	var x = 1 + num1;
+// 	getData(30,function(num2){
+// 		var y = 1 + num2;
+// 		getData(
+// 			"Meaning of life: " + (x + y),
+// 			function(answer) {
+// 				console.log(answer);
+// 			}
+// 		);	
+// 	});
+// }); //nested-callback tasks
+
+// function getData(d) {
+// 	return new Promise(function(resolve,refect) {
+// 		setTimeout(function(){ resolve(d); },1000);
+// 	});
+// }
+
+// var x;
+
+// getData(10)
+// .then(function(num1) {
+// 	x = 1 + num1;
+// 	return getData(30);
+// })
+// .then(function(num2) {
+// 	var y = 1 + num2;
+// 	return getData("Meaning of life: " + (x + y));
+// })
+// .then(function(answer) {
+// 	console.log(answer);
+// }); //promise tasks
+
+ 

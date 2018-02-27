@@ -37,11 +37,21 @@ div.first-content {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    padding: 5px;
+    padding: 10px;
     background-color: rgba(255,247,247,0.7);
-    border-radius: 10px;
+    /* border-radius: 10px; */
     box-shadow: 1px 1px 5px rgba(255,236,236,0.7);
     z-index: 999999;
+}
+
+
+.main-nav {
+    margin-top: -3%;
+    border-radius: 10%;
+    background-color: rgb(57, 94, 51);
+    color: white;
+    font-weight: bold;
+    float: right;
 }
 
 #main-title {
@@ -54,7 +64,6 @@ div.first-content {
 #main-links {
     list-style: none;
     margin-bottom: 2%;
-    float: right;   
     width: 16%;
 }
 
