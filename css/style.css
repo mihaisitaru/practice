@@ -133,14 +133,14 @@ tfoot {
     text-align: center;
 }
 
-.cv {
+.avatar {
     float: left;
     margin: 7% 0 0 4%;
     text-align: center;
     color: black;
 }
 
-.cv img {
+.avatar img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -178,7 +178,7 @@ h4 {
 .content {
     background-color: gray;
     opacity: 0.8;
-    border-radius: 10px;
+    border-radius: 5px;
 }
 
 .lorem {
