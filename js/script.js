@@ -764,6 +764,8 @@ buyButton.addEventListener("click", buyPhone);
 
 /* JS exercise on object: */
 
+/* Beginning JavaScript: From Fundamentals to Functional JS */
+
 // var animal = {};
 
 // animal.username = "mihai";
@@ -817,4 +819,50 @@ buyButton.addEventListener("click", buyPhone);
 // console.log(box[box.length - 1]);
 // console.log(box[box['length']-1]);
 
+// var noiseArray = ["meow", "ham", "cip"];
+// console.log(noiseArray);
+
+// noiseArray.unshift = "brrrmm";
+// noiseArray.push("boohoo");
+
+// noiseArray[3] = 'growl';
+
+// console.log(noiseArray);
+
+// noiseArray[noiseArray.length] = "last noise"; 
+// console.log(noiseArray);
+// console.log(noiseArray.length);
+// console.log(noiseArray[noiseArray.length - 1]);
+
+// var animal = { username: 'DaffyDuck', tagline: 'Yippeee!'};
+
+// animal.noises = noiseArray;
+
+// console.log(animal);
+
+// var animals = [];
+
+// animals.push(animal);
+
+// var quackers = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
+
+// animals[animals.length] = quackers;
+
+// console.log(animals);
+
+// var quackers2 = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
+// var quackers3 = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
+
+// animals.push(quackers2, quackers3);
+
+// console.log(animals.length);
+// console.log(animals);
+
+/* Paused JavaScript: From Fundamentals to Functional JS */
+
+/* Beginning of HTML5 Web Component Fundamentals course */
+
+
+
+/* End of HTML5 Web Component Fundamentals course*/
 
