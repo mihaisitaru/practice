@@ -858,7 +858,9 @@ buyButton.addEventListener("click", buyPhone);
 // console.log(animals.length);
 // console.log(animals);
 
-/* Paused JavaScript: From Fundamentals to Functional JS */
+
+
+/* End of JavaScript: From Fundamentals to Functional JS */
 
 /* Beginning of HTML5 Web Component Fundamentals course */
 
