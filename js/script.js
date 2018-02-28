@@ -729,7 +729,7 @@ buyButton.addEventListener("click", buyPhone);
 // box.material = "cardboard"; //adding a "material" property with the value "cardboard" on the box object, the same as box["material"] = "cardboard";
 // var cb = box.material;
 
-// box.material = "titanium";
+// box.material = "titanium"; // dinamically addind properties on the object
 // cb; //"cardboard"
 
 // var key = "material";
@@ -749,18 +749,72 @@ buyButton.addEventListener("click", buyPhone);
 
 /* Example 3 */
 
-var box = {};
+// var box = {};
 
-box["material"] = "cardboard";
+// box["material"] = "cardboard";
 
-box["size"] = {
-	"height": 2,
-	"width": 80
-};
+// box["size"] = {
+// 	"height": 2,
+// 	"width": 80
+// };
 
-box.area = function() {
-	return box.size.height * box.size.width;
-}
-//area is a method on the box object
+// box.area = function() {
+// 	return box.size.height * box.size.width;
+// } //area is a method on the box object
+
+/* JS exercise on object: */
+
+// var animal = {};
+
+// animal.username = "mihai";
+// console.log(animal.username);
+
+// animal['tagline'] = "hmm";
+// console.log(animal['tagline']);
+
+// var noises = [];
+// animal['noises'] = noises;
+
+// console.log(animal);
+
+// var count = 0;
+// for (var all in animal) {
+//     console.log(all);
+//     count++;
+//     console.log(count);
+//     if(all === 'username') {
+//         console.log("Hi my name is " + animal[all]);
+//         //return "Hi my name is " + animal[all];
+//     } else if(all === 'tagline') {
+//         console.log('I like to say ' + animal[all]);
+//     }
+// }
+
+//var box = [];
+
+// box['size'] = 9;
+// box[0] = 'meow';
+// box.push('Whooohoo!');
+
+// // console.log(box['size']);
+// // console.log(box[0]);
+
+// // for (var k in box) {
+// //     console.log(k);
+// //     console.log(box[k]);
+// // }
+
+// for (var i = 0; i < box.length; i++) {
+//     console.log(box[i]);
+//     console.log(box.length);
+// }
+
+// box['0'] = 'meow';
+// box[3] = {'babyBox': true};
+
+// console.log(box['length']);
+// console.log(box);
+// console.log(box[box.length - 1]);
+// console.log(box[box['length']-1]);
 
 
