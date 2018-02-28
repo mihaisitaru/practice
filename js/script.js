@@ -858,6 +858,53 @@ buyButton.addEventListener("click", buyPhone);
 // console.log(animals.length);
 // console.log(animals);
 
+// var nameImprover = function (name, adj) {
+// 	return 'Col ' + name + ' Mc' + adj + ' pants';
+// };
+
+// nameImprover('Langa', 'Awesome');
+
+// var add = function(a, b) {
+// 	console.log(arguments); //logs [3,10,5]
+// 	return a + b;
+// }
+
+// add(3, 10, 5); //logs 13
+
+// var add = function(a, b) {
+// 	result = 0;
+// 	for(var i = 0; i<arguments.length; i++) {
+// 		result += arguments[i];
+// 	}
+// 	return result;
+// };
+
+// add(45,87,21,58,75,233,99,777);
+
+// var add = function(a, b) {
+// 	return a + b + arguments[2];
+// };
+
+// add(3, 10, 5);
+
+// var add = function(a, b) {
+// 	Array.prototype.slice.call(arguments, 0); //transforms arguments into an array
+// 	return a + b;
+// };
+
+// add(3, 10, 55);
+
+function AnimalMaker(name) {
+	return {
+		speak: function() {
+			console.log("My name is ", name);
+		}
+	};
+};
+
+var animalNames = ['Sheep', 'Liger', 'Big Bird'];
+
+
 
 
 /* End of JavaScript: From Fundamentals to Functional JS */
