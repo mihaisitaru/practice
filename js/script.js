@@ -792,7 +792,7 @@ buyButton.addEventListener("click", buyPhone);
 //     }
 // }
 
-//var box = [];
+// var box = [];
 
 // box['size'] = 9;
 // box[0] = 'meow';
@@ -840,23 +840,23 @@ buyButton.addEventListener("click", buyPhone);
 
 // console.log(animal);
 
-// var animals = [];
+//  var animals = [];
 
-// animals.push(animal);
+//  animals.push(animal);
 
-// var quackers = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
+//  var quackers = { username: 'DaffyDuck2', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
 
-// animals[animals.length] = quackers;
+//  animals[animals.length] = quackers;
 
-// console.log(animals);
+//  console.log(animals);
 
-// var quackers2 = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
-// var quackers3 = { username: 'DaffyDuck', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
+//  var quackers2 = { username: 'DaffyDuck3', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
+//  var quackers3 = { username: 'DaffyDuck4', tagline: 'Yippeee!', noises: ['quack', 'honk', 'sneeze', 'growl'] };
 
-// animals.push(quackers2, quackers3);
+//  animals.push(quackers2, quackers3);
 
-// console.log(animals.length);
-// console.log(animals);
+//  console.log(animals.length);
+//  console.log(animals);
 
 // var nameImprover = function (name, adj) {
 // 	return 'Col ' + name + ' Mc' + adj + ' pants';
@@ -894,16 +894,157 @@ buyButton.addEventListener("click", buyPhone);
 
 // add(3, 10, 55);
 
-function AnimalMaker(name) {
-	return {
-		speak: function() {
-			console.log("My name is ", name);
-		}
-	};
-};
+// function AnimalMaker(name) {
+// 	return {
+// 		speak: function() {
+// 			console.log("My name is ", name);
+// 		},
+// 		name: name,
+// 		owner: 'Mihai'
+// 	};
+// };
 
-var animalNames = ['Sheep', 'Liger', 'Big Bird'];
+// var animalNames = ['Sheep', 'Liger', 'Big Bird'];
 
+// // var myAnimal = AnimalMaker('Tommy');
+// // myAnimal.speak();
+// // myAnimal['speak']();
+
+// var farm = [];
+
+// for (var i = 0; i < animalNames.length;i++) {
+// 	AnimalMaker(AnimalMaker(animalNames[i]).name).speak();
+// 	farm[i] = AnimalMaker(animalNames[i]);
+// }
+
+// console.log(farm);
+
+// function AnimalTestUser (username) {
+// 	var otherArgs = [];
+// 	if(arguments.length > 1) {
+// 		for (var i = 1; i<arguments.length;i++) {
+// 			otherArgs.push(arguments[i]);
+// 		}
+// 		return {
+// 			username: username,
+// 			otherArgs
+// 		};
+// 	} else {
+// 		return {
+// 			username: username
+// 		}
+// 	}
+// }
+
+// var testSheep = AnimalTestUser('CottonBall', {'loves dancing': true}, [1,2,3] );
+// console.log(testSheep);
+
+// function AnimalCreator(username, species, tagline, noises) {
+// 	return {
+// 		username: username,
+// 		species: species,
+// 		tagline: tagline,
+// 		noises: noises,
+// 		friends: []	
+// 	}
+// }
+
+// var sheep = AnimalCreator('Cloud', 'sheep', 'You can count on me!', ['baahhh', 'arrgg', 'chewchewchew']);
+// var dog = AnimalCreator('Ham', 'dog', 'T-Dog', ['hamham', 'mmrrrr', 'cvvvvw']);
+// //console.log(sheep);
+
+// function addFriend(animal, friend) {
+// 	//animal.friends.push(friend);
+// 	animal.friends.push(friend.username);
+// }
+
+// var cow = AnimalCreator('Moo', 'cow', 'Milka!', ['mooo', 'mmmmm', 'cccchewchew']);
+// console.log(cow);
+
+// var llama = AnimalCreator('Zeny', 'llama', 'lllll', ['sdf', 'sdfddsfd']);
+// console.log(llama);
+// addFriend(sheep, cow);
+// console.log(sheep);
+// addFriend(sheep, llama);
+// console.log(sheep);
+
+// var myFarm = [sheep, cow, llama];
+// addFriend(cow, sheep);
+// addFriend(llama, cow);
+
+// console.log(myFarm);
+
+// function addMatchesArray(farm) {
+// 	for (var animal in farm) {
+// 		farm[animal].matches = [];
+// 	}
+// }
+
+// addMatchesArray(myFarm);
+// console.log(myFarm[0]);
+
+// function giveMatches(farm) {
+// 	for (var animal in farm) {
+// 		farm[animal].matches.push(farm[animal].friends[0]);
+// 	}
+// }
+
+// giveMatches(myFarm);
+// console.log(myFarm[0]);
+
+/* Nesting */
+
+// var box = {};
+
+// box['innerBox'] = {};
+
+// box['innerBox']['full'] = true;
+
+// // var myInnerBox = box.innerBox;
+
+// // console.log(myInnerBox);
+
+// // box.innerBox.babyBox = {};
+
+// // box.innerBox['babyBox'];
+// // box.innerBox['babyBox'].says = "What's up?!";
+
+// box['innerBox']['height'] = 10;
+
+// box.otherBox = {};
+// var innerBox2 = 'otherBox';
+
+// box[innerBox2].full = false;
+
+/* Nesting exercise */
+
+// var friends = [];
+
+// for (var i = 0; i <animals.length; i++) {
+// 	friends.push(animals[i].username);
+// 	console.log(friends);
+// }
+
+// var relationships = {};
+// relationships.friends = friends;
+// console.log(relationships);
+// console.log(Object.keys(relationships).length);
+
+// var matches = [];
+// relationships.matches = matches;
+// relationships.matches.push('pig');
+// console.log(relationships);
+
+// relationships.username = animals[0].username;
+// console.log(relationships);
+
+// for (var i = 0; i <animals.length; i++) {
+// 	animals[i].relationships = relationships;
+// }
+
+// console.log(animals);
+
+/* Scope */
 
 
 
