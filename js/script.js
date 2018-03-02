@@ -1044,9 +1044,315 @@ buyButton.addEventListener("click", buyPhone);
 
 // console.log(animals);
 
-/* Scope */
+/* Closure */
+
+// var closureAlert = function() {
+// 	var x = "I am x!";
+// 	var alerter = function() {
+// 		alert(x);
+// 	};
+// 	setTimeout(alerter, 1000);
+// 	console.log('This will still run right after');
+// };
+
+// closureAlert();
+
+// var closureAlert = function() {
+// 	var x = 0;
+// 	var alerter = function() {
+// 		alert(++x);
+// 	};
+// 	return alerter;
+// };
+
+// var funcStorer = closureAlert();
+// var funcStorer2 = closureAlert();
+// funcStorer();
+
+// var add = function(num) {
+// 	var num1 = num;
+
+// 	var addToNum1 = function(num2) {
+// 		return num1 + num2;
+// 	};
+// 	return addToNum1;
+// };
+
+// var add5 = add(5);
+// add5(2); //7
+
+/* Closure Object */
+
+// function counter() {
+// 	var n = 0;
+// 	return {
+// 		count: function() { return ++n; },
+// 		reset: function() { n = 0; }
+// 	};
+// };
+
+// var myCounter = counter();
+// myCounter.count(); //1
+// myCounter.count(); //2
+// myCounter.reset(); 
+// myCounter.count(); //1
+
+// var sayAlice = function() {
+// 	var makeLog = function() {
+// 		console.log(alice);
+// 	};
+// 	var alice = "Hello there!";
+// 	return makeLog;
+// };
+
+// var what = sayAlice();
+// what(); 
+
+// var makeStopwatch = function() {
+// 	console.log('initialized');
+// 	var elapsed = 0;
+// 	console.log("Start watch at " + elapsed + " seconds");
+
+// 	var stopwatch = function() {
+// 		//console.log('stopwatch');
+// 		console.log("Elapsed time: " + elapsed + " seconds");
+// 		return elapsed;
+// 	};
+
+// 	var increase = function() { elapsed++ };
+// 	setInterval(increase, 1000);
+// 	return stopwatch;
+// };
+
+// var watch = makeStopwatch();
+// setInterval(watch, 1000);
+
+// var nonsense = function(str) {
+// 	var blab = function() {
+// 		alert(str);
+// 	};
+// 	//blab();
+// 	//setTimeout(blab, 2000);	
+// 	return blab;
+// };
+
+// var blabLater = nonsense('yeeeey!');
+// var blabAgainLater = nonsense('Hoooray!');
+
+// console.log(blabLater());
+// console.log(blabAgainLater());
+
+// var firstName = function(first) {
+
+// 	var lastName = function(last) {
+// 		console.log(first + ' ' + last);
+// 	};
+// 	return lastName;
+// };
+
+// var firstNameA = firstName('Mihai');
+// firstNameA('Sitaru');
+
+// var storyWriter = function() {
+// 	var story = '';
+// 	return {
+// 		addWords: function(w) {
+// 			story += w + ' ';
+// 			return story.trim();
+// 		},
+// 		erase: function() {
+// 			story = '';
+// 		}
+// 	};
+// };
+
+// var loveStory = storyWriter();
+// loveStory.addWords('The beginning of the story');
+// loveStory.addWords('Is a long one');
+
+// var horrorStory = storyWriter();
+// loveStory.addWords('This horror story has a beginning');
+// loveStory.addWords('And it also has an end');
+// loveStory.erase();
+
+/* Callbacks */
+
+// var Car = function() {
+// 	var gasolineLevel = 10;
+
+// 	function useGas(amt) {
+// 		if(gasolineLevel - amt <= 0) {
+// 			console.log("out of gas :[");
+// 		} else {
+// 			gasolineLevel -= amt;
+// 			console.log('Gasoline level ' + gasolineLevel);
+// 		}
+// 	};
+
+// 	return {
+// 		radioStation: "104.5",
+// 		changeStation: function(station) {
+// 			this.radioStation = station;
+// 		},
+// 		go: function(speed) {useGas(speed);}
+// 	};
+// };
+
+// var lamborghini = Car();
+
+// lamborghini.go(2);
+// lamborghini.changeStation("98.6");
+// Car().go(10);
+
+// var ifElse = function(condition, isTrue, isFalse) {
+// 	if(condition) {
+// 		return isTrue();
+// 	} else {
+// 		return isFalse();
+// 	}
+// };
+
+// ifElse(true, 
+
+// function() {console.log(true);},
+// function() {console.log(false);}
+
+// );
+
+// var increment = function(n) {return n+1;};
+// var square = function(n) {return n*n;};
+
+// var doMath = function(n, func) {
+// 	return func(n);
+// };
+
+// doMath(4, square);
+// doMath(5, increment);
+
+// var Toaster = function() {
+// 	var maxTemp = 500;
+// 	var temp =  0;
+// 	console.log("The temp is now: " + temp + ". Please change it!");
+// 	return {
+// 		setTemp: function(newTemp) {
+// 			if(newTemp > maxTemp) {
+// 				console.log("The temp is now: " + newTemp + ". That temp is too high!");
+// 			} else {
+// 				temp = newTemp;
+// 				console.log("The temp is now: " + temp + ". Good job!");
+// 			}
+// 		}
+// 	};
+// };
+
+// var myToaster = Toaster();
+// myToaster.setTemp(600);
+// myToaster.setTemp(200);
 
 
+// var funCaller = function(func, arg) {
+// 	return func(arg);
+// };
+
+// var firstVal = function(arr, func) {
+// 	return func(arr[0], 0, arr);
+// };
+
+// firstVal = function(list, func) {
+// 	if(Array.isArray(list)) {
+// 		return func(arr[0], 0, arr);
+// 	} else {
+// 		for(var k in list) {
+// 			return func(list[k], k, list);
+// 		}
+// 	}
+// };
+
+/* Underscore.js */
+
+// _.each([1,2,3], function(val, i, list){
+// 	console.log(val);
+// });
+
+// var pocketmon = ['Charisaur', 'Bulbazard', 'Twomew'];
+// var logger = function(val) {
+// 	console.log(val);
+// };
+
+// _.each(pocketmon, logger); //_.each(list, iterator);
+
+// var excitedArr = function(str) {
+// 	return str + '!!!';
+// };
+
+// var newArray = _.map(pocketmon, excitedArr);
+
+// function AnimalMaker(name) {
+// 	return {
+// 		speak: function() {
+// 			console.log("My name is ", name);
+// 		},
+// 		name: name,
+// 		owner: 'Mihai'
+// 	};
+// };
+
+// var animalNames = ['Sheep', 'Liger', 'Big Bird'];
+// var farm = [];
+
+// for (var i = 0; i < animalNames.length;i++) {
+// 	farm.push(AnimalMaker(animalNames[i]));
+// }
+
+// console.log(farm);
+
+// var addNames = function(name) {
+// 	//farm.push(AnimalMaker(animalNames[i]));
+// 	farm.push(AnimalMaker(name));
+// };
+
+// _.each(animalNames, addNames);
+// console.log(farm);
+
+// 
+
+// var arr = ['Ale', 'Ana', 'Mihai'];
+
+// _.each(arr, function(name, i, arr){
+// 	//console.log(name);
+// 	console.log(i + " " + name);
+// });
+
+// var helloArr = ['bonjour', 'hello', 'hola'];
+// // var checkValue = function(arr, val) {
+// // 	for(var i = 0; i<arr.length; i++) {
+// // 		if(arr[i] === val) {return true;}
+// // 	}	
+// // 	return false;
+// // };
+
+// var checkValue = function(arr, val) {
+// 	var result = false;
+// 	_.each(arr, function(v){
+// 		if(v === val) {
+// 			result = true;
+// 		}
+// 	});
+// 	return result;
+// };
+ 
+// checkValue(helloArr, "hola");
+
+// var input = {two: 2, four: 4, three: 3, twelve: 12};
+// var myNums = _.map(input, function(val, prop, obj){
+// 	return val;
+// });
+
+// console.log(myNums);
+
+// _.filter(input, function(val){
+// 	return val%2 === 0;
+// });
 
 /* End of JavaScript: From Fundamentals to Functional JS */
 
