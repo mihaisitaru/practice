@@ -96,6 +96,9 @@ function buyPhone() {
 var buyButton = document.getElementById("purchase");
 buyButton.addEventListener("click", buyPhone);
 
+
+/* ----------------------------------------------- */
+
 // var courseButton = document.getElementById("coursesI");
 
 // courseButton.addEventListener("click", function () {
@@ -1355,5 +1358,4 @@ buyButton.addEventListener("click", buyPhone);
 // });
 
 /* End of JavaScript: From Fundamentals to Functional JS */
-
 
