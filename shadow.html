@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Shadow DOM (old file)</title>
+        <!-- <style>
+                car-list {
+                    color: red;
+                }
+            </style> -->
+
+            <style>
+                    x-foo:unresolved {
+                        color: red;
+                    }
+                    x-foo {
+                        color: green;
+                    }
+        
+                </style>
+        <!-- <style>
+                p {
+                    color: white;
+                    background: red;
+                }
+            </style> -->
+
+            <!-- <style>
+                    button {
+                        color:green;
+                    }
+        
+                    #button {
+                        color: aqua;
+                        background: black;
+                    }
+                </style> -->
+        <!-- <template id="header">
+            <div>Header</div>
+            <template id="body">
+                <div>Body</div>
+            </template>
+        </template>  -->
+    <!-- <style>
+        h1 {
+            color: red;
+        }
+    </style> -->
+    </head>
+    <!-- <body>
+            <div id="host">
+                    Light DOM
+                </div>
+        
+                <script>
+                    var host = document.querySelector('#host');
+                    var root1 = host.createShadowRoot();
+                    root1.innerHTML = "<shadow></shadow><div>Root 1</div>";
+                </script>  -->
+
+        <!-- <comment-form>
+            <h2>This is the comment form</h2>
+            <p class="instructions"> Please add content here</p>
+            <p class="message">Fill in the form below</p>
+            <p class="message boring">Blah blah blah</p>
+    
+            <p class="footer">Privacy Policy</p>
+            <span>testing - testing</span>
+            <input type="button" value="Reset"/> -->
+    
+            <!-- safdasfsfs -->
+        </comment-form>
+        <!-- <template>
+                <fieldset>
+                    <legend>
+                        <content select="h2"></content>
+                    </legend>
+                    <content select="p.instructions"></content>
+                    <content select="p.message:not(.boring)"></content>
+
+                    <textarea style="width: 400px; height: 200px;"></textarea>
+                    <br/> -->
+
+                    <!-- <input type="submit" value="Submit Comment"/>
+                    <content select="input[type=button]"></content> -->
+                    <content></content> <!-- an empty content selector catches anything, be carefull where you add it -->
+                    <!-- <content select=".footer"></content>
+                   
+                </fieldset><content></content>
+            </template> -->
+            <!--<h1>Hello World from the Light DOM</h1>
+            <template> -->
+                <!-- <p> I'm coming from a template</p> -->
+                <!-- <p>
+                    This <span class="adjective"></span> template has been 
+                    copied <span class="number-of-copies"></span> times.
+                </p> -->
+            <!-- </template> -->
+            <!-- <button onclick = "copyTemplate()">Copy Template</button>
+            <script>
+                var numberOfCopies = 0;
+                function copyTemplate() {
+                    var template = document.querySelector('template');
+                    var clone = document.importNode(template.content, true);
+                    //replace placeholders
+                    clone.querySelector('.adjective').textContent = "awesome";
+                    clone.querySelector('.number-of-copies').textContent = ++numberOfCopies;
+                    document.body.appendChild(clone);
+                }
+            </script> -->
+            <!-- Option 1: -->
+            <!-- <pluralsight-comment></pluralsight-comment> -->
+            <!-- <button is="pluralsight-button"></button> -->
+            <!-- <hello-world></hello-world> -->
+            <!-- <video controls></video>  
+            <div id="host"></div>-->
+            <!-- <template>
+                    <style>
+                        h1 {
+                            color: green;
+                        }
+                    </style> 
+                <h1> Hello World from the Shadow DOM!</h1>-->
+                <!-- <script>
+                    var say = (function IIFE() {
+                        return { 
+                            sayHi: function() {
+                                alert('hi!');
+                            }
+                        };
+                    })();
+                </script> 
+            </template>-->
+            <!-- <script>
+        
+        // var template = document.querySelector('#header');
+        // var clone = document.importNode(template.content, true);
+        // document.body.appendChild(clone);
+
+        // var template = document.querySelector('#body');
+        // var clone = document.importNode(template.content, true);
+        // document.body.appendChild(clone);
+        
+        /* Instantiating Custom Elements */
+        
+        // var PluralsightCommentProto = Object.create(HTMLElement.prototype);
+        
+        // PluralsightCommentProto.createdCallback = function() {
+        //     this.innerHTML = "<h2>Pluralsight Comment</h2><textarea></textarea></br><input type='submit'/>";
+        // }
+        // var PluralsightComment = document.registerElement('pluralsight-comment', {
+        //     prototype: PluralsightCommentProto
+        // });
+
+        // var comment = new PluralsightComment();
+        // Option 2:
+        //document.body.appendChild(comment);
+
+        //Option 3:
+        // var comment = document.createElement('pluralsight-comment');
+        // document.body.appendChild(comment);
+        
+        //Option 4:
+        //document.body.innerHTML = "<pluralsight-comment/>";
+        
+        /* Instantiating Extended Elements */
+        // var Proto = Object.create(HTMLButtonElement.prototype);
+
+        // Proto.createdCallback = function() {
+        //     this.innerHTML = "Pluralsight Button";
+        //     this.value = "Default value";
+        //     this.style.color = "orange";
+        // }
+
+        // var PluralsightButton = document.registerElement('pluralsight-button', {
+        //     prototype: Proto,
+        //     extends: 'button'
+        // });
+
+        //document.body.appendChild(new PluralsightButton());
+        // var button = document.createElement('button', 'pluralsight-button');
+        // document.body.appendChild(button);
+
+        //document.body.innerHTML = "<button is='pluralsight-button'/>";
+        
+        // var Proto = Object.create(HTMLElement.prototype);
+        // Proto.createdCallback = function() {
+        //     this.innerHTML = '<h1>Hello World!</h1>';
+        // }        
+
+        // Proto.attachedCallback = function() {
+        //     console.log("Attached!");
+        // }
+
+        // Proto.detachedCallback = function() {
+        //     console.log("Detached!");
+        // }
+
+        // Proto.attributeChangedCallback = function(attrName, oldVal, newVal) {
+        //     console.log(attrName + ', ' + oldVal + ', ' + newVal);
+        // }
+
+        // var Hello = document.registerElement('hello-world', {
+        //     prototype: Proto
+        // });
+        
+        // document.querySelector('hello-world').setAttribute('test', 1);
+
+        // document.querySelector('hello-world').remove();
+        // var template = document.querySelector('template');
+        // var host = document.getElementById("host");
+        // var root = host.createShadowRoot();
+        // root.appendChild(document.importNode(template.content, true));
+        //console.log(document.querySelector('h1'));
+        //console.log(root.querySelector('h1'));
+        //say.sayHi();
+    </script> -->
+    <!-- <script>
+        var CommentProto = Object.create(HTMLElement.prototype);
+        CommentProto.createdCallback = function() {
+            var template = document.querySelector('template');
+            var shadow = this.createShadowRoot();
+            shadow.appendChild(document.importNode(template.content, true));
+        }
+        document.registerElement('comment-form', {
+            prototype: CommentProto
+        });
+    </script> -->
+    <!-- <div id="host">
+        <ul>
+            <li>Home</li>
+            <li>Courses</li>
+            <li>About</li>
+        </ul>
+        </div>
+        <template>
+            <h1>Random words</h1>
+            <content></content>
+        </template>
+
+        <script>
+            var host = document.querySelector("#host");
+            var root = host.createShadowRoot();
+            var template = document.querySelector("template");
+            var clone = document.importNode(template.content, true);
+            root.appendChild(clone);
+        </script> -->
+
+        <!-- <div id="host"><ul>
+                <li>Home</li>
+                <li>Courses</li>
+                <li>About</li></ul></div>
+            <template>
+                <h1>Random words</h1>
+                <content></content>
+            </template>
+    
+            <script>
+                var host = document.querySelector("#host");
+                var root = host.createShadowRoot();
+                var template = document.querySelector("template");
+                var clone = document.importNode(template.content, true);
+                root.appendChild(clone);
+                var distributedNodes = root.querySelector('content').getDistributedNodes();
+                console.log(distributedNodes);
+    
+                var destinationInsertionPoints = document.querySelector('ul').getDestinationInsertionPoints();
+                console.log(destinationInsertionPoints);
+            </script> -->
+
+            <!-- <button id="light-dom-button">Light DOM Button</button>
+        <div id="host">
+            <button id="distributed">Distributed Button</button>
+        </div>
+        
+        <template>
+            <button id="shadow-dom-buttom">Shadow DOM Button</button>
+            <content></content>
+            <select id="shadow">
+                <option>1</option>
+                <option>2</option>
+            </select>
+        </template>
+
+        <script>
+            
+            var host = document.querySelector("#host");
+            var root = host.createShadowRoot();
+            var template = document.querySelector('template');
+            root.appendChild(document.importNode(template.content, true));
+            
+            document.addEventListener('click', function(e) {
+                console.log(e.target.id + ' clicked!');
+            });
+
+            document.addEventListener('change', function(e) {
+                console.log(e.target.id + ' changed!');
+            })
+        </script> -->
+        <!-- <div id="host" class="aha">
+                <p>Something something pseudo host selector</p>
+                <p>Else</p> -->
+                <template>
+                    <style>
+                        /* :host {
+                            color: red;
+                        } */
+    
+                        /* :host(.hmm) {
+                            color: blue;
+                        }
+                        
+                        :host(.aha) {
+                            color: aqua;
+                            background: black;
+                        }
+    
+                        :host(:hover) {
+                            background: white;
+                            color: white;
+                        } */
+    
+                        /* :host-context(.dark) {
+                            background: gray;
+                        } */
+    
+                        
+    
+                    </style>
+                    <content></content>
+                </template>
+            </div>
+            <!-- <input type="color" value="#00ff00"> -->
+            <!-- <script>
+                var host = document.getElementById('host');
+                var root = host.createShadowRoot();
+                var template = document.querySelector('template');
+                root.appendChild(template.content, true); -->
+                <!-- // var color = document.getElementsByTagName("input");
+                // document.addEventListener('change', function(e){
+                //     console.log(e.target.value);
+                //     if (e.target.value == '#ff0000') {
+                //         alert('Warning! Red color!');
+                //     }
+                // }); 
+            </script> -->
+
+            <!-- <div id="host">
+                    <button id="button">My button</button>
+                </div>
+                <template>
+        
+                    <style>
+                        ::content button {
+                            color: red;
+                        }    
+                    </style>
+                    <content></content>
+                </template>
+        
+            <script>
+                var root = document.querySelector('#host').createShadowRoot();
+                var template = document.querySelector('template');
+                root.appendChild(template.content.cloneNode(true));
+            </script> -->
+
+            <!-- <car-list></car-list>
+        <template>
+            <ul>
+                <li>Car 1</li>
+                <li>Car 2</li>
+                <li>Car 3</li>
+            </ul>
+        </template>      
+        
+        <script>
+            var CarList = Object.create(HTMLElement.prototype);
+            CarList.createdCallback = function() {
+                var template = document.querySelector('template');
+                var templateClone = document.importNode(template.content, true);
+                this.createShadowRoot().appendChild(templateClone);
+            }
+
+            document.registerElement('car-list', {
+                prototype: CarList
+            });
+        </script>   -->
+
+        <foo>Unaffected by :unresolved because it is an unknown element (doesn't have a "-" in the name)</foo>
+        <x-foo>
+            I'm red because I match x-foo:unresolved.
+        </x-foo>
+        
+        <template>
+            I'm green because I'm now resolved.
+        </template>
+        
+        <script>
+            var XProto = Object.create(HTMLElement.prototype);
+
+            XProto.createdCallback = function() {
+                var template = document.querySelector('template');
+                var templateClone = document.importNode(template.content, true);
+                this.createShadowRoot().appendChild(templateClone);
+            }
+            
+            document.registerElement('x-foo', {
+                prototype: XProto
+            });
+            
+        </script>
+
+            
+    </body>
+</html>

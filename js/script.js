@@ -1356,9 +1356,4 @@ buyButton.addEventListener("click", buyPhone);
 
 /* End of JavaScript: From Fundamentals to Functional JS */
 
-/* Beginning of HTML5 Web Component Fundamentals course */
-
-
-
-/* End of HTML5 Web Component Fundamentals course*/
 
